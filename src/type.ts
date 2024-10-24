@@ -16,4 +16,5 @@ export interface AddressSearchResult {
 export interface UseAddressSearch {
   selectedAddress: AddressSearchResult | null;
   openSearch: () => void;
+  isReady: boolean;
 }

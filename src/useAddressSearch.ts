@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
-import { AddressSearchResult } from "./type";
+import { AddressSearchResult, UseAddressSearch } from "./type";
 
 const POSTCODE_SCRIPT_URL =
   "//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js";
@@ -17,7 +17,7 @@ declare global {
   }
 }
 
-export const useAddressSearch = () => {
+export const useAddressSearch = (): UseAddressSearch => {
   const [selectedAddress, setSelectedAddress] =
     useState<AddressSearchResult | null>(null);
   const [isScriptLoaded, setIsScriptLoaded] = useState(() => {
