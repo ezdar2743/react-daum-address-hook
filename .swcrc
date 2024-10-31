@@ -16,6 +16,5 @@
   },
   "module": {
     "type": "es6"
-  },
-  "exclude": [".*\\.test\\.tsx?$"]
+  }
 }
