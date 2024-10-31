@@ -1,12 +1,15 @@
 {
   "name": "react-daum-address-hook",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.1",
+  "description": "A lightweight and modern React hook for Daum(Kakao) address search service with TypeScript support",
   "main": "./dist/index.js",
-  "module": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=14"
   },
   "scripts": {
     "build": "swc src -d dist",
