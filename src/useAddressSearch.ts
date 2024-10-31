@@ -1,5 +1,6 @@
-import { useState, useCallback, useEffect } from "react";
 import { AddressSearchResult, UseAddressSearch } from "./type";
+import { useState, useCallback, useEffect } from "react";
+
 const POSTCODE_SCRIPT_URL =
   "//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js";
 

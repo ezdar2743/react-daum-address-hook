@@ -12,9 +12,11 @@
     "node": ">=14"
   },
   "scripts": {
-    "build": "swc src -d dist",
+    "prebuild": "rm -rf dist",
+    "build:js": "swc src -d dist --ignore '**/*.test.ts'",
     "build:types": "tsc --emitDeclarationOnly",
-    "build:all": "npm run clean && npm run build && npm run build:types",
+    "build:clean": "find dist/src -type f -exec mv {} dist \\; && rm -rf dist/src",
+    "build:all": "npm run prebuild && npm run build:js && npm run build:types && npm run build:clean",
     "test": "jest",
     "test:watch": "jest --watch",
     "dev": "swc src -d dist --watch",
