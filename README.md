@@ -26,10 +26,10 @@ yarn add react-daum-address-hook
 ## 사용법
 
 ```tsx
-Copyimport { useAddressSearch } from 'react-daum-address-hook';
+import { useAddressSearch } from "react-daum-address-hook";
 const AddressSearch = () => {
   const { selectedAddress, openSearch, isReady } = useAddressSearch();
-  console.log(selectedAddress)
+  console.log(selectedAddress);
   return (
     <div style={{ padding: "20px" }}>
       <button onClick={openSearch} disabled={!isReady}>
