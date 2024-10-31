@@ -1,6 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
 import { AddressSearchResult, UseAddressSearch } from "./type";
-
 const POSTCODE_SCRIPT_URL =
   "//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js";
 
@@ -20,12 +19,15 @@ declare global {
 export const useAddressSearch = (): UseAddressSearch => {
   const [selectedAddress, setSelectedAddress] =
     useState<AddressSearchResult | null>(null);
-  const [isScriptLoaded, setIsScriptLoaded] = useState(() => {
-    return !!document.querySelector(`script[src="${POSTCODE_SCRIPT_URL}"]`);
-  });
+  const [isScriptLoaded, setIsScriptLoaded] = useState(false);
 
   useEffect(() => {
-    if (isScriptLoaded) return;
+    if (typeof window === "undefined") return;
+
+    if (document.querySelector(`script[src="${POSTCODE_SCRIPT_URL}"]`)) {
+      setIsScriptLoaded(true);
+      return;
+    }
 
     const script = document.createElement("script");
     script.src = POSTCODE_SCRIPT_URL;
