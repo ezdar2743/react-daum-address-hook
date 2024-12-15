@@ -28,7 +28,13 @@ yarn add react-daum-address-hook
 ```tsx
 import { useAddressSearch } from "react-daum-address-hook";
 const AddressSearch = () => {
-  const { selectedAddress, openSearch, isReady } = useAddressSearch();
+  // NOTE: onComplete is optional
+  const { selectedAddress, openSearch, isReady } = useAddressSearch({
+    onComplete: (data) => {
+      setValue("postalCode", data.zonecode);
+      setValue("address", `${data.address} ${data.buildingName || ""}`);
+    },
+  });
   console.log(selectedAddress);
   return (
     <div style={{ padding: "20px" }}>
