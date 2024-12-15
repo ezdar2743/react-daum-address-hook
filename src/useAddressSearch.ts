@@ -16,8 +16,13 @@ declare global {
     };
   }
 }
+interface UseAddressSearchProps {
+  onComplete?: (data: AddressSearchResult) => void;
+}
 
-export const useAddressSearch = (): UseAddressSearch => {
+export const useAddressSearch = (
+  props?: UseAddressSearchProps
+): UseAddressSearch => {
   const [selectedAddress, setSelectedAddress] =
     useState<AddressSearchResult | null>(null);
   const [isScriptLoaded, setIsScriptLoaded] = useState(false);
@@ -46,6 +51,7 @@ export const useAddressSearch = (): UseAddressSearch => {
       await new window.daum.Postcode({
         oncomplete: (data: AddressSearchResult) => {
           setSelectedAddress(data);
+          props?.onComplete?.(data);
         },
       }).open();
     } catch (error) {
