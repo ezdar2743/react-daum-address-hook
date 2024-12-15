@@ -74,6 +74,10 @@ const nextConfig = {
 module.exports = nextConfig;
 ```
 
+## 스크린샷
+<img width="1527" alt="스크린샷 2024-12-15 15 37 50" src="https://github.com/user-attachments/assets/bcf5dc82-7780-4c3b-a450-f92807e3276b" />
+<img width="1255" alt="스크린샷 2024-12-15 15 38 05" src="https://github.com/user-attachments/assets/4900a593-0e13-42af-863e-8e36ca737aff" />
+
 ## 라이선스
 
 MIT
